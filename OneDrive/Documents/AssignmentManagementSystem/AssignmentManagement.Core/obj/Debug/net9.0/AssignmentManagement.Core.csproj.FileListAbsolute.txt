@@ -1,0 +1,13 @@
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\bin\Debug\net9.0\AssignmentManagement.Core.deps.json
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\bin\Debug\net9.0\AssignmentManagement.Core.dll
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\bin\Debug\net9.0\AssignmentManagement.Core.pdb
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.csproj.AssemblyReference.cache
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.AssemblyInfoInputs.cache
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.AssemblyInfo.cs
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.csproj.CoreCompileInputs.cache
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.sourcelink.json
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.dll
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\refint\AssignmentManagement.Core.dll
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\AssignmentManagement.Core.pdb
+C:\Users\imrab\OneDrive\Documents\AssignmentManagementSystem\AssignmentManagement.Core\obj\Debug\net9.0\ref\AssignmentManagement.Core.dll
