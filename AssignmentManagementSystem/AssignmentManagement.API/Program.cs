@@ -30,7 +30,7 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Enter your JWT token in the text input below.\n\nExample: 'eyJhbGciOiJIUzI1Ni...'"
     });
 
-    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiRequirement
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
     {
         {
             new Microsoft.OpenApi.Models.OpenApiSecurityScheme
