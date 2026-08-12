@@ -147,7 +147,7 @@ npm run dev
 //Frontend application runs at:
 http://localhost:3000
 ```
-## Demo Credentials:
+## Free Credentials:
  -----------------
 | Role | Email | Password |
 | :--- | :--- | :--- |
