@@ -149,12 +149,11 @@ http://localhost:3000
 ```
 ## Demo Credentials:
  -----------------
- Role    |         Email         |   Password
- -------------------------------------------------
- Admin   | admin@school.com      | Admin123456 
- Teacher | rabbi@school.com      | Teacher123456
- Student | student@school.com    | Student123456
------------------------------------------------------
+| Role | Email | Password |
+| :--- | :--- | :--- |
+| **Admin** | `admin@school.com` | `Admin123456` |
+| **Teacher** | `rabbi@school.com` | `Teacher123456` |
+| **Student** | `student@school.com` | `Student123456` |
 
 
 
