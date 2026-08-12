@@ -26,12 +26,11 @@ A robust, full-stack Assignment Management System built with **.NET 9 Web API** 
 
 ## 🛠️ Technology Stack
 
-- **Backend**: C# .NET 9 Web API, Entity Framework Core 9
-- **Frontend**: Next.js (React 18+ / TypeScript), Tailwind CSS, SWR
-- **Database**: PostGresSql
+- **Backend**: C# .NET 9 Web API, Entity Framework Core 9 (`Npgsql.EntityFrameworkCore.PostgreSQL`)
+- **Frontend**: Next.js (React 18+ / TypeScript), Tailwind CSS, Lucide React, SWR
+- **Database**: PostgreSQL
 - **Authentication**: JWT (JSON Web Tokens) with Role-Based Access Control (RBAC)
 - **Architecture**: Clean Architecture / Layered (Core, Infrastructure, API, Tests)
-
 ---
 
 ## 🔗 API Endpoints Overview
@@ -103,8 +102,7 @@ Before running the project locally, ensure you have the following installed:
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - [Node.js (v18 or higher)](https://nodejs.org/) & `npm`
-- [SQL Server](https://www.microsoft.com/en-us/sql-server/) / LocalDB
-
+- [PostgreSQL](https://www.postgresql.org/download/) Database Server (v13+)
 ---
 
 ## ⚙️ Environment Configuration
@@ -115,7 +113,7 @@ Do **NOT** commit actual secrets or production keys.
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=AssignmentManagementDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+    "DefaultConnection": "Host=localhost;Port=5432;Database=AssignmentManagementDb;Username=postgres;Password=yourpassword"
   },
   "Jwt": {
     "Key": "YourSuperSecretKeyForJWTTokenGeneration123456!",
