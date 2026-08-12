@@ -28,7 +28,7 @@ A robust, full-stack Assignment Management System built with **.NET 9 Web API** 
 
 - **Backend**: C# .NET 9 Web API, Entity Framework Core 9
 - **Frontend**: Next.js (React 18+ / TypeScript), Tailwind CSS, SWR
-- **Database**: PostGress
+- **Database**: PostGresSql
 - **Authentication**: JWT (JSON Web Tokens) with Role-Based Access Control (RBAC)
 - **Architecture**: Clean Architecture / Layered (Core, Infrastructure, API, Tests)
 
