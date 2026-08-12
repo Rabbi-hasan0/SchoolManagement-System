@@ -30,7 +30,7 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Enter your JWT token in the text input below.\n\nExample: 'eyJhbGciOiJIUzI1Ni...'"
     });
 
-    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiRequirement
     {
         {
             new Microsoft.OpenApi.Models.OpenApiSecurityScheme
@@ -55,7 +55,10 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 
 // 4. Configure JWT Authentication
-var jwtSecret = builder.Configuration["Jwt:SecretKey"] ?? "YourSuperSecretKeyWithAtLeast32CharactersLong!";
+var jwtSecret = builder.Configuration["Jwt:SecretKey"] 
+             ?? builder.Configuration["Jwt:Key"] 
+             ?? "YourSuperSecretKeyWithAtLeast32CharactersLong!";
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -73,28 +76,26 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// 5. CORS Setup for Frontend (Next.js)
+// 5. CORS Setup for Frontend (Vercel + Localhost)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
+        policy.AllowAnyOrigin() // Vercel এবং Localhost দুটো জায়গা থেকেই রিকোয়েস্ট একসেপ্ট করার জন্য
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
 var app = builder.Build();
-app.UseCors("AllowFrontend");
 
-// Configure HTTP pipeline
-if (app.Environment.IsDevelopment())
+// Configure HTTP pipeline (Enable Swagger in Production as well)
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Assignment Management API v1");
+    c.RoutePrefix = string.Empty; // ডিরেক্ট Root URL-এ ঢুকলেই Swagger ওপেন হবে
+});
 
 app.UseCors("AllowFrontend");
 
@@ -103,13 +104,22 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
+// 6. Automatic DB Migration & Seeding
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
-    await DbSeeder.SeedAsync(context, passwordHasher);
+    try
+    {
+        var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
+        
+        // Neon Database-এ অটোমেটিক Migration চালুর জন্য
+        await context.Database.MigrateAsync();
+        await DbSeeder.SeedAsync(context, passwordHasher);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"[DB Initializer Error]: {ex.Message}");
+    }
 }
 
 app.Run();
-
