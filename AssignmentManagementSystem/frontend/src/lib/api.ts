@@ -1,6 +1,6 @@
 // frontend/src/lib/api.ts
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5042/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5042/api";
 
 export async function fetcher<T = any>(endpoint: string, options: RequestInit = {}): Promise<T> {
   // LocalStorage থেকে টোকেন নেওয়া
